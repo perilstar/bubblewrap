@@ -31,6 +31,18 @@ h1 {
   color: #dfe6e9;
 }
 
+.footer span span {
+  margin-right: 100px;
+}
+
+.footer span button {
+  font-size: 1em;
+  border: 3px solid #dfe6e9;
+  color: #dfe6e9;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
 .grid-container {
   margin: 0 10%;
   height: auto;
