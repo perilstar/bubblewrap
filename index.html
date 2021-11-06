@@ -13,12 +13,13 @@
     <div class="grid-container">
     </div>
     <div class="footer">
-      <span>
-        <span>(✿´-ω-`)</span>
-        <button onclick="spawnBubbles()">Restart</button>
-      </span>
+      <img class="volume-icon" id="volume-indicator" src="volume-medium.png" alt="volume">
+      <input type="range" min="0.0" max="1.0" value="0.7" step="0.05" class="slider" id="volume">
+      <span>(✿´-ω-`)</span>
+      <button onclick="spawnBubbles()">Restart</button>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

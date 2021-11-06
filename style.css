@@ -24,23 +24,28 @@ h1 {
 }
 
 .footer {
-  font-size: 2em;
   text-align: center;
   height: 100px;
-  line-height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   color: #dfe6e9;
+  font-size: 0;
 }
 
-.footer span span {
-  margin-right: 100px;
+.footer span {
+  margin: 0 6%;
+  font-size: 1.6rem;
 }
 
-.footer span button {
-  font-size: 1em;
+.footer button {
+  font-size: 1.6rem;
   border: 3px solid #dfe6e9;
   color: #dfe6e9;
   border-radius: 10px;
   background-color: transparent;
+  line-height: 100%;
 }
 
 .grid-container {
@@ -49,6 +54,7 @@ h1 {
   flex: 1;
   cursor: pointer;
   font-size: 0;
+  text-align: center;
 }
 
 .popped, .unpopped {
@@ -73,4 +79,39 @@ h1 {
   border: 2px solid transparent;
   border-radius: 100%;
   color: transparent;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 16%;
+  max-width: 100px;
+  height: 10px;
+  border-radius: 5px;
+  background: #dfe6e9B0;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #dfe6e9;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #dfe6e9;
+  cursor: pointer;
+}
+
+.volume-icon {
+  height: 25px;
+  vertical-align: middle;
 }
