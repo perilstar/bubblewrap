@@ -15,17 +15,33 @@ if (storedVolume !== null) {
 
 const sounds = [];
 
-for (let i = 0; i <=8; i++) {
-  sounds.push(new Howl({
-    src: [`pop${i}.mp3`]
-  }));
-}
-
 volumeSlider.oninput = updateVolumeIndicator;
 volumeSlider.onchange = storeVolume;
 document.getElementById('volume-indicator').addEventListener('click', toggleMute);
 
+grid.addEventListener('touchmove', (event) => {
+  const element = document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY);
+  if (!element) return;
+  if (element.className !== 'unpopped') return;
+  pop(element);
+});
+
 spawnBubbles(); 
+
+const interaction = document.getElementById('interaction');
+
+interaction.addEventListener('click', (event) => {
+  interaction.parentElement.removeChild(interaction);
+  createSounds();
+});
+
+function createSounds() {
+  for (let i = 0; i <= 8; i++) {
+    sounds.push(new Howl({
+      src: [`pop${i}.mp3`]
+    }));
+  }  
+}
 
 function spawnBubbles() {
   while (grid.firstChild) {
@@ -55,15 +71,18 @@ function spawnBubbles() {
 
 function handleInteract(event) {
   if (event.type === 'mouseover' && !mouseIsPressed) return;
+  pop(event.target);
+}
 
+function pop(element) {
   const sound = sounds[Math.floor(Math.random() * sounds.length)];
   sound.rate(Math.random() * 0.8 + 1);
   sound.volume(volumeSlider.value);
   sound.play();
 
-  event.target.className = 'popped';
-  event.target.removeEventListener('click', handleInteract);
-  event.target.removeEventListener('mouseover', handleInteract);
+  element.className = 'popped';
+  element.removeEventListener('click', handleInteract);
+  element.removeEventListener('mouseover', handleInteract);
 }
 
 function updateVolumeIndicator() {
