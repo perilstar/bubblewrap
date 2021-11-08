@@ -1,0 +1,14 @@
+{
+    "name": "Bubble Wrap",
+    "short_name": "Bubble Wrap",
+    "icons": [
+        {
+            "src": "/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#2b5a7e",
+    "background_color": "#2b5a7e",
+    "display": "standalone"
+}
