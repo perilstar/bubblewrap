@@ -30,10 +30,15 @@ spawnBubbles();
 
 const interaction = document.getElementById('interaction');
 
-interaction.addEventListener('click', (event) => {
+interaction.addEventListener('click', (_event) => {
   interaction.parentElement.removeChild(interaction);
   createSounds();
 });
+
+if (isPWA()) {
+  interaction.parentElement.removeChild(interaction);
+  createSounds();
+}
 
 function createSounds() {
   for (let i = 0; i <= 8; i++) {
@@ -114,4 +119,8 @@ function toggleMute() {
     volumeSlider.value = volumeSlider.beforeMute;
   }
   updateVolumeIndicator();
+}
+
+function isPWA() {
+  return (window.matchMedia('(display-mode: standalone)').matches) || (window.navigator.standalone) || document.referrer.includes('android-app://');
 }
